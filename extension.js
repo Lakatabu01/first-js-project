@@ -46,7 +46,7 @@ const playerSelection = "rock";
 function game() {
     const playerSelection = prompt("Choose your preferred symbol. Rock, Paper or scissors?", "");
     const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    return console.log(playRound(playerSelection, computerSelection));
 }
 
 let result = playRound(playerSelection, computerSelection)
