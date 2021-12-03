@@ -1,3 +1,4 @@
+location.reload();
 let humanScore = 0;
 let computerScore = 0;
 let draw = 0;
@@ -46,23 +47,16 @@ const playerSelection = "rock";
 function game() {
     const playerSelection = prompt("Choose your preferred symbol. Rock, Paper or scissors?", "");
     const computerSelection = computerPlay();
-    return console.log(playRound(playerSelection, computerSelection));
+     console.log(playRound(playerSelection, computerSelection));
 }
-game();
 
 let result = playRound(playerSelection, computerSelection)
   
 // allows each round to be repeated five times
-for (let index = 0; index < 4; index++) {
+for (let index = 0; index < 5; index++) {
     game();
   }
   
-
-  function toy(){
-    last();
-    fat();
-  }
-  toy();
 
   function last(){
      if (result = computerWinsRound){
@@ -73,6 +67,7 @@ for (let index = 0; index < 4; index++) {
     return draw++
   } 
 }
+last();
   
 
 function fat() {
@@ -84,4 +79,4 @@ function fat() {
         console.log("It ends in a tie")
     )
 }
-
+fat();
