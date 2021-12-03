@@ -48,11 +48,12 @@ function game() {
     const computerSelection = computerPlay();
     return console.log(playRound(playerSelection, computerSelection));
 }
+game();
 
 let result = playRound(playerSelection, computerSelection)
   
 // allows each round to be repeated five times
-for (let index = 0; index < 5; index++) {
+for (let index = 0; index < 4; index++) {
     game();
   }
   
