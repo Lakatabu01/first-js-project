@@ -1,82 +1,75 @@
-location.reload();
-let humanScore = 0;
+
+let computerWins = "Too bad, you lose this round"
+let humanWins = "You win this round!"
+let drawRound = "Tie game"
+
 let computerScore = 0;
+let humanScore = 0;
 let draw = 0;
 
-// variables containing messages to be displayed at the end of each round
-let humanWinsRound = "You win this round!";
-let computerWinsRound = "you lose, computer wins this round";
-let drawRound = "This is a draw";
-
-//function that defines the selection of computer symbol
+// This functon enables the computer pick a sign
 function computerPlay() {
-    let selection = Math.floor(Math.random() * 3);
-    if (selection === 2) {
-      return  selection = "rock";
-    } else if ( selection === 1) {
-       return  selection = "paper"
-     } else {
-       return selection = "scissors";
+    let comp = Math.floor(Math.random() * 3)
+    if (comp == 2) {
+        return "rock"
+    } else if (comp == 1) {
+        return "paper"
+    } else {
+        return "scissors"
     }
-}
+} 
 
-// function that containins conditional on the outcome of each game round
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection){
-        return drawRound; 
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper" ) {
-        return computerWinsRound
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
-        return computerWinsRound
-    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
-        return computerWinsRound
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-        return humanWinsRound
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
-        return humanWinsRound
-    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
-        return humanWinsRound
-    } else{
-        return computerWinsRound
+
+
+// This function defines a single round of the game
+function round(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return drawRound
+    } else if (playerSelection === "rock" && computerSelection == "paper") {
+        return computerWins
+    } else if (playerSelection === "paper" && computerSelection == "scissors") {
+        return computerWins
+    } else if (playerSelection === "scissors" && computerSelection == "rock") {
+        return computerWins
+    } else if (playerSelection === "scissors" && computerSelection == "paper") {
+        return humanWins
+    } else if (playerSelection === "paper" && computerSelection == "rock"){
+        return humanWins
+    } else if (playerSelection === "rock" && computerSelection == "scissors") {
+        return humanWins 
+    } else {
+        return computerWins
     }
-}
+} 
 
-const computerSelection = computerPlay();
-const playerSelection = "rock";
+let piece = round()
+// still battling with this function, but we gon conquer on God!
+function decider(){
+    if (piece == computerWins){
+      return  computerScore++
+    } else if (piece == humanWins){
+      return  humanScore++
+    } else  {
+     return  draw++
+    }
+} 
+
 
 function game() {
     const playerSelection = prompt("Choose your preferred symbol. Rock, Paper or scissors?", "");
     const computerSelection = computerPlay();
-     console.log(playRound(playerSelection, computerSelection));
+    decider()
+   console.log(round(playerSelection, computerSelection));
+}
+function finali(){
+for (let i = 0; i < 5; i++){
+     game()
+}
 }
 
-let result = playRound(playerSelection, computerSelection)
-  
-// allows each round to be repeated five times
-for (let index = 0; index < 5; index++) {
-    game();
-  }
-  
+finali()
+console.log("Your score :" + humanScore)
+console.log("Computer score :" + computerScore)
+console.log("draws :" + draw)
 
-  function last(){
-     if (result = computerWinsRound){
-    return computerScore++
-  } else if (result = humanWinsRound){
-    return  humanScore++
-  } else if (result = drawRound) {
-    return draw++
-  } 
-}
-last();
-  
 
-function fat() {
-    if (computerScore++ > humanScore++) {
-        console.log("you lost, computer beat you")
-    } else if (humanScore++ > computerScore++){
-        console.log("champion, you beat computer")
-    }else if (computerScore++ == humanScore++) (
-        console.log("It ends in a tie")
-    )
-}
-fat();
