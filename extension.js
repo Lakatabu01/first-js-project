@@ -43,7 +43,7 @@ function round(playerSelection, computerSelection) {
 } 
 
 let piece = round()
-// still battling with this function, but we gon conquer on God!
+// still battling with this function,
 function decider(){
     if (piece == computerWins){
       return  computerScore++
