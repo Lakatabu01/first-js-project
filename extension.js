@@ -58,16 +58,15 @@ function decider(){
 function game() {
     const playerSelection = prompt("Choose your preferred symbol. Rock, Paper or scissors?", "");
     const computerSelection = computerPlay();
-    decider()
    console.log(round(playerSelection, computerSelection));
 }
 function finali(){
 for (let i = 0; i < 5; i++){
-     game()
+    game()
 }
 }
 
-finali()
+console.log(finali())
 console.log("Your score :" + humanScore)
 console.log("Computer score :" + computerScore)
 console.log("draws :" + draw)
