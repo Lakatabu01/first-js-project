@@ -1,74 +1,87 @@
+const choices = ["rock","paper","scissors"]
+const winners = []
 
-let computerWins = "Too bad, you lose this round"
-let humanWins = "You win this round!"
-let drawRound = "Tie game"
+function game(){
+    for (let i = 1; i <= 5; i++) {
+        playRound(i)
+    }
+    logWins()
+} 
 
-let computerScore = 0;
-let humanScore = 0;
-let draw = 0;
+function playRound(round) {
+const playerSelection = playerChoice()
+const computerSelection = computerChoice()
+const winner = checkWInner(playerSelection, computerSelection)
+winners.push(winner)
+logRound(playerSelection, computerSelection, winner, round)
+}
 
-// This functon enables the computer pick a sign
-function computerPlay() {
-    let comp = Math.floor(Math.random() * 3)
-    if (comp == 2) {
-        return "rock"
-    } else if (comp == 1) {
-        return "paper"
+//Make use of player input 
+function playerChoice() {
+let input = prompt("Make a choice between rock, paper, or scissors", "")
+while (input == null) {
+    input = prompt("Make a choice between rock, paper, or scissors", "")
+}
+input = input.toLowerCase()
+let check = validateInput(input)
+
+while (check == false){
+  input = prompt("Make sure you input rock, paper or scissors. spelling has to be exact but capitalization doesnt matter"
+  )
+
+while (input == null) {
+    input = prompt("Make a choice between rock, paper, or scissors", "")
+}
+input = input.toLowerCase()
+check = validateInput(input)
+}
+return input
+}
+
+//This function helps the computer to pick an item out of the choices array
+function computerChoice() {
+return choices[Math.floor(Math.random()*choices.length)]
+}
+
+//This function checks to see if user input rock, paper or scissors
+function validateInput(choice){
+    return choices.includes(choice)
+    }
+
+    function checkWInner(choiceP, choiceC) {
+        if (choiceP == choiceC){
+            return "Tie"
+        } else if ( 
+        (choiceP == "rock" && choiceC == "scissors") || 
+        (choiceP == "paper" && choiceC == "rock") || 
+        (choiceP == "scissors" && choiceC == "paper")
+        ){
+            return "Player"
+        } else {
+        return "Computer"
+        }
+    }
+
+function logWins() {
+    let playerWins = winners.filter((item) => item == "Player").length
+    let computerWins = winners.filter((item) => item == "Computer").length
+    let ties = winners.filter((item) => item == "Tie").length
+    console.log("Results: ")
+    console.log("Player wins: ", playerWins)
+    console.log("Computer wins: ", computerWins)
+    console.log("Ties: ", ties)
+}
+
+function logRound(playerChoice, computerChoice, winner, round) {
+    console.log("Round: ", round)
+    console.log("Player selected: ", playerChoice)
+    console.log("Computer selected: ", computerChoice)
+    if (winner == "Tie") {
+        console.log("Tie round")
     } else {
-        return "scissors"
+        console.log(winner, " won this round")
     }
-} 
-
-
-
-// This function defines a single round of the game
-function round(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return drawRound
-    } else if (playerSelection === "rock" && computerSelection == "paper") {
-        return computerWins
-    } else if (playerSelection === "paper" && computerSelection == "scissors") {
-        return computerWins
-    } else if (playerSelection === "scissors" && computerSelection == "rock") {
-        return computerWins
-    } else if (playerSelection === "scissors" && computerSelection == "paper") {
-        return humanWins
-    } else if (playerSelection === "paper" && computerSelection == "rock"){
-        return humanWins
-    } else if (playerSelection === "rock" && computerSelection == "scissors") {
-        return humanWins 
-    } else {
-        return computerWins
-    }
-} 
-
-let piece = round()
-// still battling with this function,
-function decider(){
-    if (piece == computerWins){
-      return  computerScore++
-    } else if (piece == humanWins){
-      return  humanScore++
-    } else  {
-     return  draw++
-    }
-} 
-
-
-function game() {
-    const playerSelection = prompt("Choose your preferred symbol. Rock, Paper or scissors?", "");
-    const computerSelection = computerPlay();
-   console.log(round(playerSelection, computerSelection));
-}
-function finali(){
-for (let i = 0; i < 5; i++){
-    game()
-}
+    console.log("..................................")
 }
 
-console.log(finali())
-console.log("Your score :" + humanScore)
-console.log("Computer score :" + computerScore)
-console.log("draws :" + draw)
-
-
+game()
