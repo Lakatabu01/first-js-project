@@ -1,0 +1,87 @@
+.parent{
+    background-color: black;
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: solid 2px burlywood;
+}
+
+
+.header{
+    font-size: 50px;
+    color: gold;
+    font-weight: bold;
+    border: solid 2px lime;
+    background-color: green;
+    border-width: 80%;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+button{
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: black;
+    transition: all 0.07s;
+}
+
+.row-two{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    border: solid 2px burlywood;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 25px;
+}
+
+.btn-grp{
+    display: flex;
+    gap: 70px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.score-board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.announcer{
+    display: flex;
+    align-items: center;
+    color: burlywood;
+    font-size: 30px;
+}
+
+.human-score{
+    color: yellow;
+}
+
+.computer-score{
+    color: green;
+}
+
+.btn-four{
+    border: 1px solid burlywood;
+    border-radius: 2px;
+    background-color: black;
+    color: burlywood;
+    margin-top: 15px;
+    font-size: larger;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.scale{
+transform: scale(1.4);
+}

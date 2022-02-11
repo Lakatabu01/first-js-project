@@ -3,8 +3,34 @@
 <head>
   <title>Page Title</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="parent" id="body">
+  <div>
+    <p class="header">ROCK, PAPER, SCISSORS</p>
+  </div>
+  
+  <div class="score-board"> 
+    <p class="announcer">Choose your sign <br> 
+      first to reach five points wins
+    </p>
+  </div>
+
+  <div class="column">
+<div class="row-two">
+  <p class="human-score">Player: </p>
+  <p class="computer-score">Computer: </p>
+</div>
+  </div>
+
+  <div class="btn-grp">
+    <button class="btn-one"><img src="rock.png" alt="rock"></button>
+    <button class="btn-two"><img src="paper.png"></button>
+    <button class="btn-three"><img src="scissors.png"></button>
+  </div>
+
+  <button class="btn-four">Restart</button>
+
   <script src="extension.js"></script>
 </body>
 </html>
