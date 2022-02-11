@@ -1,11 +1,5 @@
 const choices = ["rock","paper","scissors"]
 const winners = []
-<<<<<<< HEAD
-
-function game(){
-    for (let i = 1; i <= 5; i++) {
-        playRound(i)
-=======
 let playerWin = 0
 let computerWin = 0
 
@@ -39,7 +33,6 @@ if (playerWin === 5 && computerWin < 5) {
     setTimeout(display, 200)
 } else if (computerWin === 5 && playerWin < 5){
      setTimeout(displayTwo, 200) 
->>>>>>> rps-ui
     }
     logWins()
 } 
@@ -52,9 +45,6 @@ winners.push(winner)
 logRound(playerSelection, computerSelection, winner, round)
 }
 
-<<<<<<< HEAD
-//Make use of player input 
-=======
 // onclick, the button scales up by addiing the scale class to it
 btnOne.addEventListener("click", designOne)
 
@@ -202,7 +192,6 @@ function reload(){
 }
 
 /*Make use of player input 
->>>>>>> rps-ui
 function playerChoice() {
 let input = prompt("Make a choice between rock, paper, or scissors", "")
 while (input == null) {
@@ -223,45 +212,18 @@ check = validateInput(input)
 }
 return input
 }
-<<<<<<< HEAD
-
-//This function helps the computer to pick an item out of the choices array
-function computerChoice() {
-return choices[Math.floor(Math.random()*choices.length)]
-}
-
-=======
 */
 
 //This function helps the computer to pick an item out of the choices array
 
 /*
->>>>>>> rps-ui
 //This function checks to see if user input rock, paper or scissors
 function validateInput(choice){
     return choices.includes(choice)
     }
-<<<<<<< HEAD
-
-    function checkWInner(choiceP, choiceC) {
-        if (choiceP == choiceC){
-            return "Tie"
-        } else if ( 
-        (choiceP == "rock" && choiceC == "scissors") || 
-        (choiceP == "paper" && choiceC == "rock") || 
-        (choiceP == "scissors" && choiceC == "paper")
-        ){
-            return "Player"
-        } else {
-        return "Computer"
-        }
-    }
-
-=======
 */
 
 /*
->>>>>>> rps-ui
 function logWins() {
     let playerWins = winners.filter((item) => item == "Player").length
     let computerWins = winners.filter((item) => item == "Computer").length
@@ -271,14 +233,10 @@ function logWins() {
     console.log("Computer wins: ", computerWins)
     console.log("Ties: ", ties)
 }
-<<<<<<< HEAD
-
-=======
 */
 
 
 /*
->>>>>>> rps-ui
 function logRound(playerChoice, computerChoice, winner, round) {
     console.log("Round: ", round)
     console.log("Player selected: ", playerChoice)
@@ -290,9 +248,4 @@ function logRound(playerChoice, computerChoice, winner, round) {
     }
     console.log("..................................")
 }
-<<<<<<< HEAD
-
-game()
-=======
 */
->>>>>>> rps-ui
